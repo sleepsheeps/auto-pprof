@@ -1,0 +1,4 @@
+port: 2536
+services:
+  - name: "1.1.test"
+    addr: "127.0.0.1:2106"

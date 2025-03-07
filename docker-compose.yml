@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  autopprof:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: auto-pprof
+    ports:
+      - "2536:2536"  # pprof默认端口
+    volumes:
+      - ./config.yaml:/app/config.yaml  # 挂载配置文件
+      - ./saved:/app/saved
+      - ./pprof:~/pprof
+    environment:
+      - TZ=Asia/Shanghai
+    restart: unless-stopped
+    networks:
+      - autopprof-network
+
+networks:
+  autopprof-network:
+    driver: bridge
