@@ -2,9 +2,7 @@ version: '3.8'
 
 services:
   autopprof:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: auto-pprof:latest
     container_name: auto-pprof
     ports:
       - "2536:2536"  # pprof默认端口
